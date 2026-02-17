@@ -4,9 +4,9 @@ Google Apps Script tool that **automatically collects tasks** from multiple Goog
 
 **Real-world production tool** used at Tim Hortons — reduces weekly manual preparation from 3–6 hours to ~2–3 minutes, eliminates distribution errors, and provides managers with clean calendar-style task overviews.
 
-<p align="center">
 ### Sample Received Email (Full View)
 ![Example Email Sent to Manager](demo/sample-email-full.png)
+<p align="center">
 </p>
 
 ## Key Features
