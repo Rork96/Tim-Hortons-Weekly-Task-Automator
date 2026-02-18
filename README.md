@@ -60,7 +60,7 @@ Test the automation yourself with this shared template:
 ### Spreadsheet Tabs Overview
 All required input, config and log sheets.
 
-![Spreadsheet Tabs List](demo/SpreadsheetTabsList.png)  
+![Spreadsheet Tabs List](demo/Spreadsheet-Tabs-List.png)  
 *(Screenshot shows partial list; full set includes Settings, Leaders Board, Self-Evaluations, Calibration & Receiving Logs, Weekly Reports - Section Assignments, CLUSTER - Training Videos, Deadlines Submissions, Supervisor Task Assignments, Announcements, Logs)*
 
 ### Custom Tasks Menu
