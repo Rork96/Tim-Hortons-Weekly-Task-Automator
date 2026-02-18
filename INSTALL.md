@@ -1,55 +1,55 @@
 # Installation & Setup Guide
 
-This Google Apps Script automates weekly task distribution for Tim Hortons managers using Google Sheets.
+This Google Apps Script automates weekly task distribution for Tim Hortons managers.
 
 ### Prerequisites
 - Google account
-- Google Sheet with required tabs (Settings, Announcements, Logs, Leaders Board, etc.) — use the [demo template](https://docs.google.com/spreadsheets/d/1hdgul5uaL5jyhZzR-JLbXlIVdrX2p3MnRrzVagGT4gQ/edit?usp=sharing)
-- Basic familiarity with Google Sheets
+- Google Sheet with required tabs — start with the [demo template](https://docs.google.com/spreadsheets/d/1hdgul5uaL5jyhZzR-JLbXlIVdrX2p3MnRrzVagGT4gQ/edit?usp=sharing)
+- Basic Google Sheets knowledge
 
 ### Step-by-Step Setup
 
-1. **Prepare your Google Sheet**
-   - Open the [demo spreadsheet](https://docs.google.com/spreadsheets/d/1hdgul5uaL5jyhZzR-JLbXlIVdrX2p3MnRrzVagGT4gQ/edit?usp=sharing) or your own
-   - File → Make a copy (to your Drive)
-   - Ensure tabs exist: Settings, Announcements, Leaders Board, Self-Evaluations, Calibration & Receiving Logs, Weekly Reports - Section Assignments, CLUSTER - Training Videos, Supervisor Task Assignments, Deadlines Submissions
+1. **Prepare the Sheet**
+   - Open [demo](https://docs.google.com/spreadsheets/d/1hdgul5uaL5jyhZzR-JLbXlIVdrX2p3MnRrzVagGT4gQ/edit?usp=sharing)
+   - File → Make a copy to your Drive
+   - Verify tabs: Settings, Announcements, Leaders Board, Self-Evaluations, Calibration & Receiving Logs, Weekly Reports - Section Assignments, CLUSTER - Training Videos, Supervisor Task Assignments, Deadlines Submissions
 
-2. **Open Apps Script editor**
+2. **Open Apps Script**
    - In the Sheet: **Extensions → Apps Script**
 
-3. **Add the code**
+3. **Add the Code (Single-File Approach)**
    - Delete default `Code.gs`
-   - Create files via + button (recommended structure):
-     - `main.gs` — menu & main functions
-     - `setup.gs` — sheet setup functions
-     - `email-builder.gs` — HTML email generation
-     - `data-collectors.gs` — task collection logic
-     - `utils.gs` — logging & helpers
-   - Or paste everything into one file if simpler
-   - Copy code from `/src/` in this repository
+   - Paste the entire script code (from `/src/main.gs` or combined file in this repo)
+   - **Note:** Everything is in one file for simplicity and fast deployment. Modular structure is optional.
 
-4. **Save and authorize**
-   - Save project (disk icon)
-   - Run `onOpen()` → authorize permissions (Sheets + Gmail)
-   - Approve all requests
+4. **Save & Authorize**
+   - Save project
+   - Run `onOpen()` → authorize permissions (read/write Sheets + send emails)
+   - Approve all scopes
 
-5. **Reload the Sheet**
-   - Close and reopen browser tab
+5. **Initialize**
+   - Reload the sheet tab
    - **Tasks** menu appears in top bar
 
-6. **Test the tool**
-   - **Tasks → Send Test Emails** → enter your email → check inbox
-   - **Tasks → Preview & Send Tasks** → review summary → confirm send
+6. **Test Safely**
+   - **Tasks → Send Test Emails** → enter your email → verify receipt/format
+   - **Tasks → Preview & Send Tasks** → check summary → confirm send
 
-### Optional: Auto-Run Every Week
-- Apps Script editor → Triggers (clock icon) → Add Trigger
+### Optional: Weekly Auto-Run
+- Apps Script → Triggers → Add Trigger
 - Function: `autoSendTasks`
 - Event: Time-driven → Week timer → Monday 7–8 AM
 
 ### Troubleshooting
-- No menu? Run `onOpen()` manually
-- Email quota exceeded? Free Gmail: ~100/day — wait till next day
-- Errors? Check **Logs** sheet or console
-- Still issues? Contact: pavlo.tsyhanash@gmail.com or Telegram @R_O_R_K
+- No menu? Manually run `onOpen()`
+- Quota error? Gmail free limit ~100/day — wait 24h
+- Errors? Check **Logs** sheet or console logs
+- Contact: pavlo.tsyhanash@gmail.com | Telegram @R_O_R_K
+
+### Customization & Contribution
+- Add new task sources: extend `collectTasks()` function
+- Change email styling: edit HTML template in `sendEmails()`
+- Multi-language? Add toggle for Ukrainian/English
+- Pull requests welcome for improvements!
 
 Happy automating!
