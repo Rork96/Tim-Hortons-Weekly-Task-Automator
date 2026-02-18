@@ -1,64 +1,55 @@
 # Installation & Setup Guide
 
-This Google Apps Script project automates weekly task distribution for Tim Hortons managers using Google Sheets.
+This Google Apps Script automates weekly task distribution for Tim Hortons managers using Google Sheets.
 
 ### Prerequisites
-- A Google account
-- Google Sheet with the required tabs (Settings, Announcements, Logs, Leaders Board, Self-Evaluations, etc.) — make a copy of your existing one
+- Google account
+- Google Sheet with required tabs (Settings, Announcements, Logs, Leaders Board, etc.) — use the [demo template](https://docs.google.com/spreadsheets/d/1hdgul5uaL5jyhZzR-JLbXlIVdrX2p3MnRrzVagGT4gQ/edit?usp=sharing)
 - Basic familiarity with Google Sheets
 
 ### Step-by-Step Setup
 
 1. **Prepare your Google Sheet**
-   - Open your Tim Hortons task spreadsheet (or make a copy if sharing a template)
-   - Ensure it has at least these sheets:
-     - Settings (managers & emails)
-     - Announcements
-     - Logs (will be auto-created)
-     - Leaders Board
-     - Self-Evaluations
-     - Calibration & Receiving Logs
-     - Weekly Reports - Section Assignments
-     - CLUSTER - Training Videos
-     - Supervisor Task Assignments
-     - Deadlines Submissions
+   - Open the [demo spreadsheet](https://docs.google.com/spreadsheets/d/1hdgul5uaL5jyhZzR-JLbXlIVdrX2p3MnRrzVagGT4gQ/edit?usp=sharing) or your own
+   - File → Make a copy (to your Drive)
+   - Ensure tabs exist: Settings, Announcements, Leaders Board, Self-Evaluations, Calibration & Receiving Logs, Weekly Reports - Section Assignments, CLUSTER - Training Videos, Supervisor Task Assignments, Deadlines Submissions
 
 2. **Open Apps Script editor**
-   - In the Google Sheet: **Extensions → Apps Script**
+   - In the Sheet: **Extensions → Apps Script**
 
 3. **Add the code**
-   - Delete any default code in `Code.gs`
-   - Copy-paste the entire script from the `src/` folder files in this repository (or combine into one file if preferred)
-   - **Recommended structure** (create separate files via + button in editor):
-     - `main.gs` — onOpen(), menus, preview/send functions
-     - `setup.gs` — sheet creation functions
-     - `email-builder.gs` — sendEmails() and HTML generation
-     - `data-collectors.gs` — collectTasks() logic
-     - `utils.gs` — helpers like logAction, getManagersAndEmails
+   - Delete default `Code.gs`
+   - Create files via + button (recommended structure):
+     - `main.gs` — menu & main functions
+     - `setup.gs` — sheet setup functions
+     - `email-builder.gs` — HTML email generation
+     - `data-collectors.gs` — task collection logic
+     - `utils.gs` — logging & helpers
+   - Or paste everything into one file if simpler
+   - Copy code from `/src/` in this repository
 
 4. **Save and authorize**
-   - Click the disk icon (Save project)
-   - Run any function (e.g. `onOpen()`) → you will be asked to authorize permissions (Sheets, Gmail, etc.)
-   - Approve all (this script needs access to read/write Sheets and send emails)
+   - Save project (disk icon)
+   - Run `onOpen()` → authorize permissions (Sheets + Gmail)
+   - Approve all requests
 
 5. **Reload the Sheet**
-   - Close and reopen the spreadsheet tab
-   - A new **Tasks** menu should appear in the top bar
+   - Close and reopen browser tab
+   - **Tasks** menu appears in top bar
 
-6. **Test it**
-   - Go to **Tasks → Send Test Emails** → enter your own email
-   - Check if you receive a test version
-   - Then use **Tasks → Preview & Send Tasks** for real send
+6. **Test the tool**
+   - **Tasks → Send Test Emails** → enter your email → check inbox
+   - **Tasks → Preview & Send Tasks** → review summary → confirm send
 
-### Optional: Add time-based trigger
-- In Apps Script editor: **Triggers** (clock icon) → **Add Trigger**
-- Choose `autoSendTasks` function
-- Event source: Time-driven
-- Type: Week timer → e.g. Every Monday at 7–8 AM
+### Optional: Auto-Run Every Week
+- Apps Script editor → Triggers (clock icon) → Add Trigger
+- Function: `autoSendTasks`
+- Event: Time-driven → Week timer → Monday 7–8 AM
 
 ### Troubleshooting
 - No menu? Run `onOpen()` manually
-- Email quota error? Gmail allows ~100 emails/day for free accounts
-- Errors? Check the **Logs** sheet or run functions step-by-step
+- Email quota exceeded? Free Gmail: ~100/day — wait till next day
+- Errors? Check **Logs** sheet or console
+- Still issues? Contact: pavlo.tsyhanash@gmail.com or Telegram @R_O_R_K
 
-For questions: pavlo.tsyhanash@gmail.com or Telegram @R_O_R_K
+Happy automating!
