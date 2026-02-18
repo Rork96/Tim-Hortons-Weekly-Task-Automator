@@ -43,7 +43,7 @@ Google Apps Script tool that **automatically collects tasks** from multiple Goog
 ### Spreadsheet Tabs Overview
 All required input, config and log sheets.
 
-![Spreadsheet Tabs List](demo/CLUSTERS%20-%20Training%20Videos.png)  
+![Spreadsheet Tabs List](demo/Spreadsheet-Tabs-List.png)  
 *(Note: screenshot shows partial list; full set includes Settings, Leaders Board, Self-Evaluations, Calibration & Receiving Logs, Weekly Reports - Section Assignments, CLUSTER - Training Videos, Deadlines Submissions, Supervisor Task Assignments, Announcements, Logs)*
 
 ### Custom Tasks Menu
